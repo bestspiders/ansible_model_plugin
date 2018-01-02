@@ -1,5 +1,5 @@
-**Versions of ansible supported**: 2.0-2.4
-**ENV system**: centos6/7
+**Versions of ansible supported**: 2.0-2.4<br>
+**ENV system**: centos6/7<br>
 # ansible_model_plugin<br>
 更快更方便的编写yaml<br>
 # 现有模块<br>
