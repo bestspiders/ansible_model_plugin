@@ -28,4 +28,4 @@ def main():
     module.exit_json(changed=True, meta=response,result=success_list,result_list=content_list)
 
 if __name__ == '__main__':
-    main();
+    main()
