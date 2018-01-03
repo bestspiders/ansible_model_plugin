@@ -34,7 +34,10 @@ class ActionModule(ActionBase):
             return result
         try:
             if sub_str:
-                str_dic = eval(sub_str)
+                if type(sub_str)==type({}):
+                    str_dic=sub_str
+                else:
+                    str_dic=eval(sub_str)
                 with open(tmp_source, 'r') as f:
                     will_sub=f.read()
                     for every_value in str_dic:
