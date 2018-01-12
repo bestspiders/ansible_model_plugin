@@ -1,10 +1,30 @@
-**Versions of ansible supported**: 2.0-2.4<br>
-**ENV system**: centos6/7<br>
-# ansible_model_plugin<br>
-更快更方便的编写yaml<br>
-# 现有模块<br>
-jdk_install:这是一个针对oracle官方二进制编译包安装.tar.gz结尾<br>
-str_sub:这是一个为了方便修改字符的模块使用的是python的sub模块<br>
-# 现有插件<br>
-assemble_lineinfile:灵感来自assemble以及linefile模块.提前在本机读取内容并修改内容，并copy到目标机器上。<br>
-# 修改于2018/1/2<br>
+#jdk_install
+```
+本模块针对官方编译包安装
+环境为centos6/7
+eg:
+  vars:
+    client_path: /usr/local/src
+  tasks:
+  - name: install jdk
+    jdk_install:   #模块名字
+      jdk_gz_path: /usr/local/src/jdk-7u80-linux-x64.tar.gz #jdk压缩包路径
+      jdk_install_path: "{{client_path}}" #jdk安装路径
+      add_env: yes #是否添加进换进变量（可选）默认为no
+    register: jdk_info
+  - name: check jdk
+    debug: var=jdk_info #打印输出结果
+```
+#str_sub
+```
+#模块针对yaml里正则替换
+ - str_sub:
+     original_str: 192.168.1.0 #将192.168.1.0替换成192_168_1_0
+     re_content: \.
+     sub_str:_
+返回替换的内容和字符分割的列表
+ - str_sub:
+     original_str: ['192.168.1.12','10.150.21.34']
+     re_content: 10\.150\.
+返回匹配的内容
+```
