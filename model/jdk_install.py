@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 #!/usr/bin/python
-#author:王鑫
+#author: wang
 #2017.12.08 修改
 """
 本模块针对官方编译包安装
