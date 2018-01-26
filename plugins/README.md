@@ -25,14 +25,13 @@ key为regexp值，键值是你你替换成的值<br>
 作用：为提供python api执行python脚本回显<br>
 用法:<br>
 ```
-content:
+编码前原内容:
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
 import os,sys
 if __name__ == '__main__':
 	os.mkdir('/root/www')
 	print "hello world
-yaml:
 ```
 ```
   - name: exec script
