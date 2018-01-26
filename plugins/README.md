@@ -20,3 +20,22 @@ sub_str填写的值为字典<br>
 key为regexp值，键值是你你替换成的值<br>
 # 注意:<br>
 此替换操作仅限remote_src是False(默认也是False)<br>
+# rec_raw_script
+作为一个action插件仿照script插件编写，接受binascii.b2a_hex()编码后字符<br>
+作用：为提供python api执行python脚本回显<br>
+用法:<br>
+```
+content:
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+import os,sys
+if __name__ == '__main__':
+	os.mkdir('/root/www')
+	print "hello world
+yaml:
+```
+```
+  - name: exec script
+    rec_raw_script:             
+    content:      23212f7573722f62696e2f707974686f6e0a232d2a2d20636f64696e673a7574662d38202d2a2d0a696d706f7274206f732c7379730a6966205f5f6e616d655f5f203d3d20275f5f6d61696e5f5f273a0a096f732e6d6b64697228272f726f6f742f77777727290a097072696e74202268656c6c6f20776f726c6422
+```
